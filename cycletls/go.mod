@@ -1,4 +1,4 @@
-module github.com/dunstorm/CycleTLS/cycletls
+module github.com/Danny-Dasilva/CycleTLS/cycletls
 
 go 1.21
 
@@ -21,3 +21,5 @@ require (
 	golang.org/x/sys v0.17.0 // indirect
 	golang.org/x/text v0.14.0 // indirect
 )
+
+replace github.com/Danny-Dasilva/CycleTLS/cycletls => github.com/dunstorm/CycleTLS/cycletls v0.0.0-20241220202305-9f95c0dcabab
