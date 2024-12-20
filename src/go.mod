@@ -2,10 +2,8 @@ module github.com/Danny-Dasilva/CycleTLS/src
 
 go 1.21
 
-replace github.com/Danny-Dasilva/CycleTLS/cycletls => ../cycletls
-
 require (
-	github.com/Danny-Dasilva/CycleTLS/cycletls v1.0.26 // indirect
+	github.com/dunstorm/CycleTLS/cycletls v1.0.26 // indirect
 	github.com/Danny-Dasilva/fhttp v0.0.0-20240217042913-eeeb0b347ce1 // indirect
 	github.com/andybalholm/brotli v1.1.0 // indirect
 	github.com/cloudflare/circl v1.3.7 // indirect

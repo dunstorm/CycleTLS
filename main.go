@@ -1,7 +1,7 @@
 package main
 
 import (
-	cycletls "github.com/Danny-Dasilva/CycleTLS/cycletls" // imports locally per go.mod
+	cycletls "github.com/dunstorm/CycleTLS/cycletls" // imports locally per go.mod
 	"log"
 	"runtime"
 	"time"
@@ -23,6 +23,6 @@ func main() {
 	if err != nil {
 		log.Print("Request Failed: " + err.Error())
 	}
-	log.Println(response.Status,)
+	log.Println(response.Status)
 
 }

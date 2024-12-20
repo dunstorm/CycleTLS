@@ -12,9 +12,9 @@ Accepting Community Support and PR's
 	
 
 ![build](https://github.com/Danny-Dasilva/CycleTLS/actions/workflows/test_golang.yml/badge.svg)
-[![GoDoc](http://img.shields.io/badge/go-documentation-blue.svg)](http://godoc.org/github.com/Danny-Dasilva/CycleTLS/cycletls) 
+[![GoDoc](http://img.shields.io/badge/go-documentation-blue.svg)](http://godoc.org/github.com/dunstorm/CycleTLS/cycletls) 
 [![license](https://img.shields.io/github/license/Danny-Dasilva/CycleTLS.svg)](https://github.com/Danny-Dasilva/CycleTLS/blob/main/LICENSE)
-[![Go Report Card](https://goreportcard.com/badge/github.com/Danny-Dasilva/CycleTLS/cycletls)](https://goreportcard.com/report/github.com/Danny-Dasilva/CycleTLS/cycletls)
+[![Go Report Card](https://goreportcard.com/badge/github.com/dunstorm/CycleTLS/cycletls)](https://goreportcard.com/report/github.com/dunstorm/CycleTLS/cycletls)
 [![npm version](https://img.shields.io/npm/v/cycletls.svg)](https://www.npmjs.org/package/cycletls)
  <a href="https://discord.gg/gsmxMHrwhu">
   <img src="https://img.shields.io/discord/1100945880888115200?logo=discord"
@@ -69,7 +69,7 @@ $ npm install cycletls
 Golang
 
 ```bash
-$ go get github.com/Danny-Dasilva/CycleTLS/cycletls 
+$ go get github.com/dunstorm/CycleTLS/cycletls 
 ```
 
 # Usage 
@@ -111,7 +111,7 @@ package main
 
 import (
 	"log"
-	"github.com/Danny-Dasilva/CycleTLS/cycletls"
+	"github.com/dunstorm/CycleTLS/cycletls"
 )
 
 func main() {
@@ -136,7 +136,7 @@ func main() {
 
 ```go
 import (
-	"github.com/Danny-Dasilva/CycleTLS/cycletls"
+	"github.com/dunstorm/CycleTLS/cycletls"
 	http "github.com/Danny-Dasilva/fhttp" // note this is a drop-in replacement for net/http
 )
 
@@ -175,7 +175,7 @@ initCycleTLS().then((cycleTLS) => {});
 
 ```go
 import (
-	"github.com/Danny-Dasilva/CycleTLS/cycletls"
+	"github.com/dunstorm/CycleTLS/cycletls"
 )
 
 //The `Init` function initializes golang channels to process requests. 
@@ -351,7 +351,7 @@ package main
 import (
 	"log"
 
-	cycletls "github.com/Danny-Dasilva/CycleTLS/cycletls"
+	cycletls "github.com/dunstorm/CycleTLS/cycletls"
 )
 
 // Static variables
@@ -432,7 +432,7 @@ Set module-aware mode
 `go env -w  GO111MODULE=off`
 
 Install golang dependencies
-`go get github.com/Danny-Dasilva/CycleTLS/cycletls`
+`go get github.com/dunstorm/CycleTLS/cycletls`
 
 install npm packages (this command handles the above)
 
@@ -563,7 +563,7 @@ const initCycleTLS = require("cycletls");
 package main
 
 import (
-    "github.com/Danny-Dasilva/CycleTLS/cycletls"
+    "github.com/dunstorm/CycleTLS/cycletls"
 )
 
 func main() {
@@ -670,7 +670,7 @@ async function processCookies(response, url, cookieJar) {
 package main
 
 import (
-	"github.com/Danny-Dasilva/CycleTLS/cycletls"
+	"github.com/dunstorm/CycleTLS/cycletls"
 	"log"
 	"net/http/cookiejar"
 	"net/url"
@@ -793,7 +793,7 @@ package main
 
 import (
 	"bytes"
-	"github.com/Danny-Dasilva/CycleTLS/cycletls"
+	"github.com/dunstorm/CycleTLS/cycletls"
 	"log"
 	"mime/multipart"
 )
@@ -834,7 +834,7 @@ func main() {
 package main
 
 import (
-	"github.com/Danny-Dasilva/CycleTLS/cycletls"
+	"github.com/dunstorm/CycleTLS/cycletls"
 	"bytes"
 	"io"
 	"log"
@@ -925,7 +925,7 @@ package main
 import (
     "log"
 	  "net/url"
-    "github.com/Danny-Dasilva/CycleTLS/cycletls"
+    "github.com/dunstorm/CycleTLS/cycletls"
 )
 
 func main() {
@@ -1009,7 +1009,7 @@ package main
 import (
     "encoding/base64"
     "os"
-    "github.com/Danny-Dasilva/CycleTLS/cycletls"
+    "github.com/dunstorm/CycleTLS/cycletls"
 )
 
 func main() {
@@ -1059,7 +1059,7 @@ In golang set `ForceHTTP1` in Options
 package main
 
 import (
-	"github.com/Danny-Dasilva/CycleTLS/cycletls"
+	"github.com/dunstorm/CycleTLS/cycletls"
 	"log"
 )
 

@@ -7,8 +7,8 @@ import (
 	"encoding/json"
 	"testing"
 
-	// cycletls "../../../cycletls"
-	cycletls "github.com/Danny-Dasilva/CycleTLS/cycletls"
+	// cycletls "../../.github.com/dunstorm/CycleTLS/cycletls"
+	cycletls "github.com/dunstorm/CycleTLS/cycletls"
 )
 
 type AkamaiOptions struct {

@@ -18,7 +18,7 @@
     "build:go:windows:amd64": " cd src && cross-env GO111MODULE=on GOOS=windows  GOARCH=amd64  go build -o ../dist/index.exe      ./",
     "build:go": "concurrently npm:build:go:*",
     "build": "tsc",
-    "prebuild:go": "cd src && cross-env GO111MODULE=on go get github.com/Danny-Dasilva/CycleTLS/cycletls",
+    "prebuild:go": "cd src && cross-env GO111MODULE=on go get github.com/dunstorm/CycleTLS/cycletls",
     "prepare": "npm run build && npm run build:go",
     "test": "jest"
   },

@@ -8,7 +8,7 @@ package cycletls_test
 // 	// "encoding/json"
 // 	"testing"
 
-// 	cycletls "github.com/Danny-Dasilva/CycleTLS/cycletls"
+// 	cycletls "github.com/dunstorm/CycleTLS/cycletls"
 // )
 
 // var TLS13Results = []CycleTLSOptions{

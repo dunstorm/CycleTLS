@@ -18,9 +18,9 @@ jobs:
           go-version: '1.21'
 
       - name: Build
-        working-directory: ./cycletls
+        working-directory: github.com/dunstorm/CycleTLS/cycletls
         run: go build -v ./...
 
       - name: Test
-        working-directory: ./cycletls
+        working-directory: github.com/dunstorm/CycleTLS/cycletls
         run: go test -v ./...

@@ -65,7 +65,7 @@ jobs:
         run: go env -w  GO111MODULE=auto
 
       - name: Install golang dependencies
-        run: while read l; do go get -v "$l"; done < <(go list -f '{{ join .Imports "\n" }}' ./cycletls)
+        run: while read l; do go get -v "$l"; done < <(go list -f '{{ join .Imports "\n" }}' github.com/dunstorm/CycleTLS/cycletls)
         shell: bash
 
       - name: Install npm depencencies

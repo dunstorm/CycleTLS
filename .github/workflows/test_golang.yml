@@ -18,14 +18,14 @@ jobs:
         with:
           go-version: ${{ matrix.go-version }}
       - name: Download Dependencies
-        working-directory: ./cycletls
+        working-directory: github.com/dunstorm/CycleTLS/cycletls
         run: go mod download
       - name: Build
-        working-directory: ./cycletls
+        working-directory: github.com/dunstorm/CycleTLS/cycletls
         run: go build -v ./...
 
       - name: Unit Test
-        working-directory: ./cycletls
+        working-directory: github.com/dunstorm/CycleTLS/cycletls
         run: go test --race -v ./...
 
       - name: Start SOCKS Proxy (only on ubuntu)
@@ -34,5 +34,5 @@ jobs:
           docker run -d -p 9050:9050 dperson/torproxy
 
       - name: Integration Tests
-        working-directory: ./cycletls
+        working-directory: github.com/dunstorm/CycleTLS/cycletls
         run: go test --race -v -tags=integration ./...

@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 	// "encoding/json"
-	"./cycletls"
+	"github.com/dunstorm/CycleTLS/cycletls"
 	"runtime"
 )
 
