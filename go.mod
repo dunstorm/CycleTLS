@@ -1,8 +1,8 @@
-module github.com/Danny-Dasilva/CycleTLS
+module github.com/dunstorm/CycleTLS
 
 go 1.22.6
 
-require github.com/Danny-Dasilva/CycleTLS/cycletls v1.0.26
+require github.com/dunstorm/CycleTLS/cycletls v1.0.26
 
 require (
 	github.com/Danny-Dasilva/fhttp v0.0.0-20240217042913-eeeb0b347ce1 // indirect
@@ -19,6 +19,4 @@ require (
 	h12.io/socks v1.0.3 // indirect
 )
 
-replace github.com/Danny-Dasilva/CycleTLS/cycletls => ./cycletls
-
-replace github.com/Danny-Dasilva/CycleTLS => github.com/dunstorm/CycleTLS v0.0.0-20241220202305-9f95c0dcabab
+replace github.com/dunstorm/CycleTLS/cycletls => ./cycletls
