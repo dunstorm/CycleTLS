@@ -3,8 +3,6 @@ package cycletls
 import (
 	"encoding/json"
 	"flag"
-	http "github.com/Danny-Dasilva/fhttp"
-	"github.com/gorilla/websocket"
 	"io"
 	"log"
 	nhttp "net/http"
@@ -12,6 +10,9 @@ import (
 	"os"
 	"runtime"
 	"strings"
+
+	http "github.com/Danny-Dasilva/fhttp"
+	"github.com/gorilla/websocket"
 )
 
 // Options sets CycleTLS client options
@@ -240,14 +241,14 @@ func (client CycleTLS) Do(URL string, options Options, Method string) (response 
 
 	options.URL = URL
 	options.Method = Method
-	 // Set default values if not provided
-	 if options.Ja3 == "" {
-        options.Ja3 = "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,18-35-65281-45-17513-27-65037-16-10-11-5-13-0-43-23-51,29-23-24,0"
-    }
-    if options.UserAgent == "" {
+	// Set default values if not provided
+	if options.Ja3 == "" {
+		options.Ja3 = "771,4865-4866-4867-49195-49199-49196-49200-52393-52392-49171-49172-156-157-47-53,18-35-65281-45-17513-27-65037-16-10-11-5-13-0-43-23-51,29-23-24,0"
+	}
+	if options.UserAgent == "" {
 		// Mac OS Chrome 121
-        options.UserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
-    }
+		options.UserAgent = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36"
+	}
 	opt := cycleTLSRequest{"cycleTLSRequest", options}
 
 	res := processRequest(opt)
@@ -260,12 +261,18 @@ func (client CycleTLS) Do(URL string, options Options, Method string) (response 
 }
 
 // Init starts the worker pool or returns a empty cycletls struct
-func Init(workers ...bool) CycleTLS {
-	if len(workers) > 0 && workers[0] {
+
+type InitOptions struct {
+	Workers    bool
+	NumWorkers int
+}
+
+func Init(options InitOptions) CycleTLS {
+	if options.Workers {
 		reqChan := make(chan fullRequest)
 		respChan := make(chan Response)
-		go workerPool(reqChan, respChan)
-		log.Println("Worker Pool Started")
+		go workerPool(reqChan, respChan, options.NumWorkers)
+		log.Printf("Worker Pool Started with %d workers", options.NumWorkers)
 
 		return CycleTLS{ReqChan: reqChan, RespChan: respChan}
 	}
@@ -281,9 +288,9 @@ func (client CycleTLS) Close() {
 }
 
 // Worker Pool
-func workerPool(reqChan chan fullRequest, respChan chan Response) {
+func workerPool(reqChan chan fullRequest, respChan chan Response, numWorkers int) {
 	//MAX
-	for i := 0; i < 100; i++ {
+	for i := 0; i < numWorkers; i++ {
 		go worker(reqChan, respChan)
 	}
 }
@@ -376,7 +383,7 @@ func WSEndpoint(w nhttp.ResponseWriter, r *nhttp.Request) {
 	} else {
 		reqChan := make(chan fullRequest)
 		respChan := make(chan Response)
-		go workerPool(reqChan, respChan)
+		go workerPool(reqChan, respChan, 100)
 
 		go readSocket(reqChan, ws)
 		//run as main thread
